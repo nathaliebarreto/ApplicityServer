@@ -18,7 +18,7 @@ exports.up = function (knex) {
     table.string('company_name').notNullable();
     table.integer('interview_quantity').notNullable();
     table.string('response_date').notNullable();
-    table.string('sallary_offered').notNullable();
+    table.string('salary_offered').notNullable();
     table.integer('company_transparency').notNullable();
     table.string('comments').notNullable();
     table.timestamps(true, true);

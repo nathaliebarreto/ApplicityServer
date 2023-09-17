@@ -11,7 +11,7 @@ exports.seed = async function (knex) {
       id: "3456",
       name: "google",
       location: "remote",
-      transperancy_rating: "5",
+      transperancy_rating: 5,
     }
   ]);
 };

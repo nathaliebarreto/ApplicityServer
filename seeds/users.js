@@ -9,12 +9,12 @@ exports.seed = async function (knex) {
   await knex("users").insert([
     {
       id: "123456",
-      name_first: "Nathalie",
-      name_last: "Barreto",
+      name_first: "bobby",
+      name_last: "brown",
       gender: "Female",
       race: "white",
       ethnicity: "Latina",
-      user_email: "ireenatbarr@gmail.com",
+      user_email: "email@email.com",
       linked_in: "whatever.com",
     }
   ]);

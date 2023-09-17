@@ -9,7 +9,7 @@ exports.index = (_req, res) => {
             "companies.name",
             "reviews.company_name",
             "inventories.response_date",
-            "inventories.sallary_offered",
+            "inventories.salary_offered",
             "inventories.interview_quantity",
             "inventories.company_transparency",
             "inventories.created_at",
@@ -25,7 +25,7 @@ exports.index = (_req, res) => {
 
 exports.addReview = (req, res) => {
     //Validates the request body for filled data
-    if (!req.body.company_name || !req.body.interview_quantity || !req.body.sallary_offered || !req.body.company_transparency || !req.body.response_date || !req.body.company_id) {
+    if (!req.body.company_name || !req.body.interview_quantity || !req.body.salary_offered || !req.body.company_transparency || !req.body.response_date || !req.body.company_id) {
         return res.status(400).send('Please fill all fields');
     }
 
