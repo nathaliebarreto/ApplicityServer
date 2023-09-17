@@ -1,11 +1,10 @@
 const router = require("express").Router();
 const userController = require("../controllers/usersController");
-router;
 
 router
     .route('/')
     .get(userController.index)
-    .post(userController.addUsers);
+// .post(userController.addUsers);
 
 router.route("/:id").get(userController.singleUser);
 

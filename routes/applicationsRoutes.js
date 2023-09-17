@@ -5,6 +5,11 @@ router
     .route("/")
     .get(applicationsController.index)
     .post(applicationsController.addApplication);
+    // .post((request, response) => {
+    //     const jsonResponse = { message: "You have made a post request" };
+    //     console.log(request.body)
+    //     response.json(request.body);
+    // });
 
 router
     .route("/:id")

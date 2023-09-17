@@ -38,10 +38,8 @@ exports.up = function (knex) {
         })
         .createTable('applications', (table) => {
             table.uuid('id').primary();
-            table
-                .uuid('user_id')
-            table
-                .uuid('company_id')
+            table.uuid('user_id')
+            table.uuid('company_id')
             table.string('company_name').notNullable();
             table.string('role_name').notNullable();
             table.boolean('interview');
@@ -51,7 +49,7 @@ exports.up = function (knex) {
             table.boolean('follow_up');
             table.string('job_info').notNullable();
             table.timestamps(true, true);
-            })
+        })
 };
 
 /**
@@ -60,8 +58,8 @@ exports.up = function (knex) {
  */
 exports.down = function (knex) {
     return knex.schema
-    .dropTable('reviews')
-    .dropTable('companies')
-    .dropTable('users')
-    .dropTable('applications')
+        .dropTable('reviews')
+        .dropTable('companies')
+        .dropTable('users')
+        .dropTable('applications')
 };

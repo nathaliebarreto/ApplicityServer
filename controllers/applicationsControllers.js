@@ -25,18 +25,27 @@ exports.index = (_req, res) => {
 
 exports.addApplication = (req, res) => {
     //Validates the request body for filled data
-    if (!req.body.company_name || !req.body.role_name || !req.body.interview || !req.body.response_date || !req.body.job_connection || !req.body.follow_up || !req.body.job_info) {
+    if (!req.body.company_name || !req.body.role_name || !req.body.job_info || !req.body.salary || !req.body.user_email) {
         return res.status(400).send('Please fill all fields');
     }
 
-    const newApplication = { ...req.body, id: uuidv4() };
+    const newApplication = {
+        company_name: req.body.company_name,
+        role_name: req.body.role_name,
+        job_info: req.body.job_info,
+        salary: req.body.salary,
+        id: uuidv4()
+    };
+
+    console.log(newApplication)
 
     knex("applications")
         .insert(newApplication)
         .then((data) => {
             // Respond with 201 and the location of the newly created record
             const newApplicationURL = `/applications/${newApplication.id}`;
-            res.status(201).location(newApplicationURL).send(newApplicationURL);
+            // res.status(201).location(newApplicationURL).send(newApplicationURL);
+            res.status(201).json({ newApplicationURL });
         })
         .catch((err) => res.status(400).send(`Error creating application: ${err}`));
 };

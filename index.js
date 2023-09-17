@@ -15,11 +15,16 @@ app.get("/", (request, response) => {
     response.send("Sup MTV, welcome to my crib!");
 });
 
+app.post("/", (request, response) => {
+    const jsonResponse = { message: "You have made a post request" };
+    console.log(request.body)
+    response.json(jsonResponse);
+});
+
 app.use("/users", usersRoutes);
 app.use("/companies", companiesRoutes);
 app.use("/reviews", reviewsRoutes);
 app.use("/applications", applicationsRoutes);
-
 
 app.listen(port, () => {
     console.log(`🪩  Your server is running on http://localhost:${port} LETS GOOOO!!!🚀`);
