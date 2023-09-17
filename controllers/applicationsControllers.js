@@ -24,30 +24,42 @@ exports.index = (_req, res) => {
 };
 
 exports.addApplication = (req, res) => {
-    //Validates the request body for filled data
+    // Validates the request body for filled data
     if (!req.body.company_name || !req.body.role_name || !req.body.job_info || !req.body.salary || !req.body.user_email) {
         return res.status(400).send('Please fill all fields');
     }
 
-    const newApplication = {
-        company_name: req.body.company_name,
-        role_name: req.body.role_name,
-        job_info: req.body.job_info,
-        salary: req.body.salary,
-        id: uuidv4()
-    };
+    // Find user_id based on user_email
+    knex('users')
+        .where('user_email', req.body.user_email)
+        .select('id')
+        .first()
+        .then((user) => {
+            if (!user) {
+                return res.status(404).send('User not found');
+            }
 
-    console.log(newApplication)
+            const newApplication = {
+                company_name: req.body.company_name,
+                role_name: req.body.role_name,
+                job_info: req.body.job_info,
+                salary: req.body.salary,
+                user_id: user.id, // Assign user_id
+                id: uuidv4()
+            };
 
-    knex("applications")
-        .insert(newApplication)
-        .then((data) => {
-            // Respond with 201 and the location of the newly created record
-            const newApplicationURL = `/applications/${newApplication.id}`;
-            // res.status(201).location(newApplicationURL).send(newApplicationURL);
-            res.status(201).json({ newApplicationURL });
+            console.log(newApplication);
+
+            knex('applications')
+                .insert(newApplication)
+                .returning('id')
+                .then((applicationId) => {
+                    const newApplicationURL = `/applications/${applicationId[0]}`;
+                    res.status(201).json({ newApplicationURL });
+                })
+                .catch((err) => res.status(400).send(`Error creating application: ${err}`));
         })
-        .catch((err) => res.status(400).send(`Error creating application: ${err}`));
+        .catch((err) => res.status(400).send(`Error finding user: ${err}`));
 };
 
 exports.application = (req, res) => {

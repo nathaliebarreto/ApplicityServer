@@ -6,13 +6,13 @@ exports.up = function (knex) {
     return knex.schema
         .createTable('users', (table) => {
             table.uuid('id').primary();
-            table.string('name_first').notNullable();
-            table.string('name_last').notNullable();
-            table.string('gender').notNullable();
-            table.string('race').notNullable();
-            table.string('ethnicity').notNullable();
+            table.string('name_first')
+            table.string('name_last')
+            table.string('gender')
+            table.string('race')
+            table.string('ethnicity')
             table.string('user_email').notNullable();
-            table.string('linked_in').notNullable();
+            table.string('linked_in')
             table.timestamps(true, true);
         })
         .createTable('companies', (table) => {
@@ -38,7 +38,7 @@ exports.up = function (knex) {
         })
         .createTable('applications', (table) => {
             table.uuid('id').primary();
-            table.uuid('user_id')
+            table.uuid('user_id').references('id').inTable('users');
             table.uuid('company_id')
             table.string('company_name').notNullable();
             table.string('role_name').notNullable();

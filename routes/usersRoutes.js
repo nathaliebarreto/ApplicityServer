@@ -4,7 +4,7 @@ const userController = require("../controllers/usersController");
 router
     .route('/')
     .get(userController.index)
-// .post(userController.addUsers);
+    .post(userController.addUsers);
 
 router.route("/:id").get(userController.singleUser);
 
