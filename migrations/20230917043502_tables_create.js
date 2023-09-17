@@ -40,6 +40,7 @@ exports.up = function (knex) {
             table.uuid('id').primary();
             table.uuid('user_id').references('id').inTable('users');
             table.uuid('company_id')
+            table.string('job_link').notNullable();
             table.string('company_name').notNullable();
             table.string('role_name').notNullable();
             table.boolean('interview');
