@@ -15,6 +15,7 @@ exports.seed = async function (knex) {
       company_name: "google",
       role_name: "engineer",
       interview: true,
+      salary: '400',
       response_date: "08-16-2023",
       job_connection: "someone.linkedin.com",
       follow_up: true,

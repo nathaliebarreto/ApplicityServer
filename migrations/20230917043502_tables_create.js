@@ -44,10 +44,11 @@ exports.up = function (knex) {
                 .uuid('company_id')
             table.string('company_name').notNullable();
             table.string('role_name').notNullable();
-            table.boolean('interview').notNullable();
-            table.string('response_date').notNullable();
-            table.string('job_connection').notNullable();
-            table.boolean('follow_up').notNullable();
+            table.boolean('interview');
+            table.string('response_date');
+            table.string('job_connection');
+            table.string('salary').notNullable();
+            table.boolean('follow_up');
             table.string('job_info').notNullable();
             table.timestamps(true, true);
             })
