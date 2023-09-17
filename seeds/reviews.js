@@ -7,11 +7,11 @@ exports.seed = async function (knex) {
   await knex("reviews").del();
   await knex("reviews").insert([
     {
-      id: "2922c286-16cd-4d43-ab98-c79f678aeab0",
-      companies_id: "2922c286-16cd-4d43-ab98-c79f698aeav0",
+      id: "23456",
+      company_id: "3456",
+      // user_id: "123456",
       company_name: "google",
       interview_quantity: "5",
-      // application_date: 20230505,
       response_date: "08-16-2023",
       sallary_offered: "60,000 - 70,000",
       company_transparency: 5,

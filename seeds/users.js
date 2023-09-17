@@ -8,7 +8,7 @@ exports.seed = async function (knex) {
   await knex("users").del();
   await knex("users").insert([
     {
-      id: "2922c286-16cd-4d43-ab98-c79f698aeac0",
+      id: "123456",
       name_first: "Nathalie",
       name_last: "Barreto",
       gender: "Female",

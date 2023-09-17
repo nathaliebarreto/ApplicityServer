@@ -9,8 +9,9 @@ exports.seed = async function (knex) {
 
   await knex("applications").insert([
     {
-      id: "2922c286-16cd-4d43-ab98-c79f698aeak0",
-      users_id: "2922c286-16cd-4d43-ab98-c79f698aeac0",
+      id: "4567",
+      user_id: "123456",
+      // company_id: "3456",
       company_name: "google",
       roll_name: "engineer",
       interview: true,

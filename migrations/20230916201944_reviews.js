@@ -6,10 +6,15 @@ exports.up = function (knex) {
     return knex.schema.createTable('reviews', (table) => {
     table.uuid('id').primary();
     table
-        .uuid('companies_id')
+        .uuid('company_id')
         .references('companies.id')
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
+    // table
+    //     .uuid('user_id')
+    //     .references('users.id')
+    //     .onUpdate('CASCADE')
+    //     .onDelete('CASCADE');
     table.string('company_name').notNullable();
     table.integer('interview_quantity').notNullable();
     table.string('response_date').notNullable();
