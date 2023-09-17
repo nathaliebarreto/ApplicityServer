@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const reviewController = require("../controllers/reviewsController");
-router;
 
 router
     .route("/")
@@ -10,7 +9,7 @@ router
 router
     .route("/:id")
     .get(reviewController.review)
-    .put(reviewController.updateReview)
+    .put(reviewController.updateReviews)
     .delete(reviewController.deleteReview);
 
 module.exports = router;

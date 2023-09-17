@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const applicationsController = require("../controllers/applicationsControllers");
-router;
 
 router
     .route("/")
