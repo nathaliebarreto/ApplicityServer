@@ -9,7 +9,7 @@ exports.seed = async function (knex) {
     {
       id: "23456",
       company_id: "3456",
-      // user_id: "123456",
+      user_id: "123456",
       company_name: "google",
       interview_quantity: 5,
       response_date: "08-16-2023",

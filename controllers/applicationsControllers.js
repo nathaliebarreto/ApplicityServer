@@ -8,7 +8,7 @@ exports.index = (_req, res) => {
             "users.id",
             "users.name",
             "applications.company_name",
-            "applications.roll_name",
+            "applications.role_name",
             "applications.interview",
             "applications.response_date",
             "applications.job_connection",
@@ -25,7 +25,7 @@ exports.index = (_req, res) => {
 
 exports.addApplication = (req, res) => {
     //Validates the request body for filled data
-    if (!req.body.company_name || !req.body.roll_name || !req.body.interview || !req.body.response_date || !req.body.job_connection || !req.body.follow_up || !req.body.job_info) {
+    if (!req.body.company_name || !req.body.role_name || !req.body.interview || !req.body.response_date || !req.body.job_connection || !req.body.follow_up || !req.body.job_info) {
         return res.status(400).send('Please fill all fields');
     }
 
